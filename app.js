@@ -81,10 +81,8 @@ const handleReset = (e, arg1) => {
 const handleCellClick = (e, arg1, arg2) => {
      const classList = e.target.classList;
      const location =  classList[1];
-     let testStr = statusDiv.textContent;
-     let testRegex = /won/;
 
-     if (classList[2] === 'x' || classList[2] === 'o' || testRegex.test(testStr)) {
+     if (classList[2] === 'x' || classList[2] === 'o' || /won/.test(statusDiv.textContent)) {
           return;
      }
 
@@ -104,10 +102,10 @@ form.addEventListener('submit', (e) => {
   const playertwo = Player(document.getElementById('playertwo').value);
   document.getElementById("divForm").remove();
   document.getElementById("divBoard").style.display = "block";
-  resetDiv.addEventListener('click', (event) => handleReset(event, playerone))
+  resetDiv.addEventListener('click', (event) => handleReset(event, playerone));
   statusDiv.innerHTML = `${playerone.getName()} is next`;
   for (const cellDiv of cellDivs)  {
-       cellDiv.addEventListener('click', (event) => handleCellClick(event, playerone, playertwo))
+       cellDiv.addEventListener('click', (event) => handleCellClick(event, playerone, playertwo));
   }
   e.preventDefault();
 });
