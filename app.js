@@ -65,11 +65,10 @@ const handleReset = (e) => {
      xIsNext = true;
      statusDiv.innerHTML = `${xSymbol} is next`;
      winner = null;
-     for ( const cellDiv of CellDivs ) {
+     for (const cellDiv of cellDivs) {
          cellDiv.classList.remove('x');
-         cellDiv.classList.remoce('o');
+         cellDiv.classList.remove('o');
      }
-     
 };
 
 const handleCellClick = (e) => {
