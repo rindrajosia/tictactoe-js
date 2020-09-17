@@ -57,6 +57,9 @@ const checkGameStatus = () => {
      }
 }
 
+const handleReset = (e) => {
+     console.log(e)
+};
 
 const handleCellClick = (e) => {
      const classList = e.target.classList;
