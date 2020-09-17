@@ -5,6 +5,10 @@ const cellDivs = document.querySelectorAll('.game-cell');
 const xSymbol = '✕'
 const oSymbol = '○'
 
+let gameIsLive = true;
+let xIsNext = true;
+let winner = null;
+
 const letterToSymbol = (letter) => letter === 'x' ? xSymbol : oSymbol;
 
 const handleWin = (letter) => {
@@ -55,10 +59,17 @@ const checkGameStatus = () => {
              statusDiv.innerHTML = `<span>${oSymbol} is next</span>`;
          }
      }
-}
+};
 
 const handleReset = (e) => {
-     console.log(e)
+     xIsNext = true;
+     statusDiv.innerHTML = `${xSymbol} is next`;
+     winner = null;
+     for ( const cellDiv of CellDivs ) {
+         cellDiv.classList.remove('x');
+         cellDiv.classList.remoce('o');
+     }
+     
 };
 
 const handleCellClick = (e) => {
@@ -78,3 +89,9 @@ const handleCellClick = (e) => {
           checkGameStatus();
      }
 };
+
+resetDiv.addEventListener('click', handleReset)
+
+for (const cellDiv of cellDivs)  {
+     cellDiv.addEventListener('click', handleCellClick)
+}
