@@ -28,3 +28,22 @@ const checkGameStatus = () => {
      const bottomMiddle = cellDivs[7].classList[2];
      const bottomRight = cellDivs[8].classList[2];
 }
+
+
+const handleCellClick = (e) => {
+     const classList = e.target.classList;
+     const location =  classList[1];
+
+     if (classList[2] === 'x' || classList[2] === 'o') {
+          return;
+     }
+
+     if (xIsNext) {
+          classList.add('x');
+          checkGameStatus();
+
+     } else {
+          classList.add('o');
+          checkGameStatus();
+     }
+};
