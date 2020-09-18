@@ -30,7 +30,7 @@ body {
 .status-action {
   display: flex;
   margin-top: 25px;
-  font-size: 25px;
+  font-size: 18px;
   justify-content: space-around;
 }
 
@@ -45,6 +45,15 @@ body {
 .reset:hover {
   color: #f2ebd3;
 }
+
+#new-game {
+  cursor: pointer;
+}
+
+#new-game:hover {
+  color: #f2ebd3;
+}
+
 
 .game-grid {
   display: grid;
