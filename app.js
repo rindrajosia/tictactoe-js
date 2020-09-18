@@ -1,6 +1,7 @@
 const statusDiv = document.querySelector('.status');
 const resetDiv = document.querySelector('.reset');
 const cellDivs = document.querySelectorAll('.game-cell');
+const form = document.getElementById('myForm');
 
 const xSymbol = '✕';
 const oSymbol = '○';
@@ -8,6 +9,7 @@ const oSymbol = '○';
 let gameIsLive = true;
 let xIsNext = true;
 let winner = null;
+
 
 const letterToSymbol = (letter) => letter === 'x' ? xSymbol : oSymbol;
 
@@ -17,7 +19,7 @@ const handleWin = (letter, arg1, arg2) => {
   if (winner === 'x') {
     statusDiv.innerHTML = `${arg1.getName()} has WON!`;
   } else {
-    statusDiv.innerHTML = `<span>${arg2.getName()} has won!</span>`;
+    statusDiv.innerHTML = `<span>${arg2.getName()} has WON!</span>`;
   }
 };
 
@@ -66,21 +68,29 @@ const Player = (name) => {
   return { getName, };
 };
 
-const handleReset = (e, arg1) => {
-  xIsNext = true;
-  statusDiv.innerHTML = `${arg1.getName()} is next`;
-  winner = null;
-  for (const cellDiv of cellDivs) {
-    cellDiv.classList.remove('x');
-    cellDiv.classList.remove('o');
-  }
+const handleReset = () => {
+  resetModule.resetLoop();
 };
+
+const resetModule = (() => {
+  xIsNext = true;
+  winner = null;
+  const resetLoop = () => {
+    for (const cellDiv of cellDivs) {
+      cellDiv.classList.remove('x');
+      cellDiv.classList.remove('o');
+    }
+  }
+  return {
+    resetLoop,
+  };
+})();
 
 const handleCellClick = (e, arg1, arg2) => {
   const classList = e.target.classList;
   const location = classList[1];
 
-  if (classList[2] === 'x' || classList[2] === 'o' || /won/.test(statusDiv.textContent)) {
+  if (classList[2] === 'x' || classList[2] === 'o' || /WON/.test(statusDiv.textContent)) {
     return;
   }
 
@@ -93,27 +103,29 @@ const handleCellClick = (e, arg1, arg2) => {
   }
 };
 
-const form = document.getElementById('myForm');
 
 form.addEventListener('submit', (e) => {
-  const playerone = Player(document.getElementById('playerone').value);
-  const playertwo = Player(document.getElementById('playertwo').value);
 
+  playerone = Player(document.getElementById('playerone').value);
+  playertwo = Player(document.getElementById('playertwo').value);
+  console.log(playerone.getName());
+  console.log(playertwo.getName());
   document.getElementById('divForm').style.display = 'none';
   document.getElementById('divBoard').style.display = 'block';
 
-  resetDiv.addEventListener('click', (event) => handleReset(event, playerone));
+  resetDiv.addEventListener('click', handleReset);
   statusDiv.innerHTML = `${playerone.getName()} is next`;
 
-  for (const cellDiv of cellDivs)  {
+  for (let cellDiv of cellDivs)  {
     cellDiv.addEventListener('click', (event) => handleCellClick(event, playerone, playertwo));
   }
-
   e.preventDefault();
 });
 
 const newGameForm = document.getElementById("new-game");
 
 newGameForm.onclick = () => {
+  form.reset();
+  resetModule.resetLoop();
   document.getElementById('divForm').style.display = 'block';
 };
