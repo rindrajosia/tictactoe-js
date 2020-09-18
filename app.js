@@ -10,7 +10,6 @@ let gameIsLive = true;
 let xIsNext = true;
 let winner = null;
 
-
 const letterToSymbol = (letter) => letter === 'x' ? xSymbol : oSymbol;
 
 const handleWin = (letter, arg1, arg2) => {
@@ -65,7 +64,7 @@ const checkGameStatus = (arg1, arg2) => {
 
 const Player = (name) => {
   const getName = () => name;
-  return { getName, };
+  return { getName };
 };
 
 const handleReset = () => {
@@ -80,7 +79,7 @@ const resetModule = (() => {
       cellDiv.classList.remove('x');
       cellDiv.classList.remove('o');
     }
-  }
+  };
   return {
     resetLoop,
   };
@@ -103,13 +102,10 @@ const handleCellClick = (e, arg1, arg2) => {
   }
 };
 
-
 form.addEventListener('submit', (e) => {
+  const playerone = Player(document.getElementById('playerone').value);
+  const playertwo = Player(document.getElementById('playertwo').value);
 
-  playerone = Player(document.getElementById('playerone').value);
-  playertwo = Player(document.getElementById('playertwo').value);
-  console.log(playerone.getName());
-  console.log(playertwo.getName());
   document.getElementById('divForm').style.display = 'none';
   document.getElementById('divBoard').style.display = 'block';
 
@@ -122,7 +118,7 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
 });
 
-const newGameForm = document.getElementById("new-game");
+const newGameForm = document.getElementById('new-game');
 
 newGameForm.onclick = () => {
   form.reset();

@@ -54,7 +54,6 @@ body {
   color: #f2ebd3;
 }
 
-
 .game-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
