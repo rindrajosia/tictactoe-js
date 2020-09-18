@@ -2,7 +2,7 @@ const statusDiv = document.querySelector('.status');
 const resetDiv = document.querySelector('.reset');
 const cellDivs = document.querySelectorAll('.game-cell');
 const form = document.getElementById('myForm');
-let gameIsLive = true;
+
 let xIsNext = true;
 let winner = null;
 
@@ -63,10 +63,10 @@ const resetModule = (() => {
   xIsNext = true;
   winner = null;
   const resetLoop = () => {
-    for (const cellDiv of cellDivs) {
+    cellDivs.forEach(cellDiv => {
       cellDiv.classList.remove('x');
       cellDiv.classList.remove('o');
-    }
+    });
   };
   return {
     resetLoop,
@@ -103,9 +103,13 @@ form.addEventListener('submit', (e) => {
   resetDiv.addEventListener('click', handleReset);
   statusDiv.innerHTML = `${playerone.getName()} is next`;
 
-  for (const cellDiv of cellDivs) {
+  // for (const cellDiv of cellDivs) {
+  //   cellDiv.addEventListener('click', (event) => handleCellClick(event, playerone, playertwo));
+  // }
+
+  cellDivs.forEach(cellDiv => {
     cellDiv.addEventListener('click', (event) => handleCellClick(event, playerone, playertwo));
-  }
+  });
   e.preventDefault();
 });
 
