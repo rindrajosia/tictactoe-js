@@ -6,26 +6,22 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>Tic Tac Toe</title>
 </head>
 <body>
 
   <div class = "d-flex p-3" >
-    <div class="col-4 card shadow-sm p-3 mb-5 bg-white rounded" id = "divForm">
-           <h2>Players name:</h2>
+      <div class="card shadow-sm p-3 mb-5 bg-white rounded" id = "divForm">
+          <h2>Players name:</h2>
           <form id = "myForm" acrion = "/" method = "GET">
-		        <input type="text" id="playerone" name="playerone" required = 'required' placeholder="Enter player one name" class="form-control"><br>
-		        <input type="text" id="playertwo" name="playertwo" required = 'required' placeholder="Enter player two name" class="form-control"><br>
+		        <input type="text" id="playerone" name="playerone" required = 'required' placeholder="Player X" class="form-control"><br>
+		        <input type="text" id="playertwo" name="playertwo" required = 'required' placeholder="Player O" class="form-control"><br>
             <input type="submit" id="submit" value="Play" class="btn btn-primary">
           </form>
-	</div>
+	  </div>
+  </div>
 
-        <div class="card shadow mb-5 bg-white rounded turn">
-          </div>
-        <div class="card shadow mb-5 bg-white rounded board">
-
-        </div>
-    </div>
 <div class="container" id = "divBoard">
     <h1 class="title">Tic <span>Tac</span> Toe</h1>
     <div class="col-4 card shadow-sm p-3 mb-5 bg-white rounded">
