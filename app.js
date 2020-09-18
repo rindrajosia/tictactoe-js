@@ -2,15 +2,9 @@ const statusDiv = document.querySelector('.status');
 const resetDiv = document.querySelector('.reset');
 const cellDivs = document.querySelectorAll('.game-cell');
 const form = document.getElementById('myForm');
-
-const xSymbol = '✕';
-const oSymbol = '○';
-
 let gameIsLive = true;
 let xIsNext = true;
 let winner = null;
-
-const letterToSymbol = (letter) => letter === 'x' ? xSymbol : oSymbol;
 
 const handleWin = (letter, arg1, arg2) => {
   gameIsLive = false;
@@ -23,33 +17,33 @@ const handleWin = (letter, arg1, arg2) => {
 };
 
 const checkGameStatus = (arg1, arg2) => {
-  const topLeft = cellDivs[0].classList[2];
-  const topMiddle = cellDivs[1].classList[2];
-  const topRight = cellDivs[2].classList[2];
-  const middleLeft = cellDivs[3].classList[2];
-  const middleMiddle = cellDivs[4].classList[2];
-  const middleRight = cellDivs[5].classList[2];
-  const bottomLeft = cellDivs[6].classList[2];
-  const bottomMiddle = cellDivs[7].classList[2];
-  const bottomRight = cellDivs[8].classList[2];
+  const tplft = cellDivs[0].classList[1];
+  const tpmid = cellDivs[1].classList[1];
+  const tpri = cellDivs[2].classList[1];
+  const midlft = cellDivs[3].classList[1];
+  const midmid = cellDivs[4].classList[1];
+  const midri = cellDivs[5].classList[1];
+  const btmlft = cellDivs[6].classList[1];
+  const btmmid = cellDivs[7].classList[1];
+  const btmri = cellDivs[8].classList[1];
 
-  if (topLeft && topLeft === topMiddle && topLeft === topRight) {
-    handleWin(topLeft, arg1, arg2);
-  } else if (middleLeft && middleLeft === middleMiddle && middleLeft === middleRight) {
-    handleWin(middleLeft, arg1, arg2);
-  } else if (bottomLeft && bottomLeft === bottomMiddle && bottomLeft === bottomRight) {
-    handleWin(bottomLeft, arg1, arg2);
-  } else if (topLeft && topLeft === middleLeft && topLeft === bottomLeft) {
-    handleWin(topLeft, arg1, arg2);
-  } else if (topMiddle && topMiddle === middleMiddle && topMiddle === bottomMiddle) {
-    handleWin(topMiddle, arg1, arg2);
-  } else if (topRight && topRight === middleRight && topRight === bottomRight) {
-    handleWin(topRight, arg1, arg2);
-  } else if (topLeft && topLeft === middleMiddle && topLeft === bottomRight) {
-    handleWin(topLeft, arg1, arg2);
-  } else if (topRight && topRight === middleMiddle && topRight === bottomLeft) {
-    handleWin(topRight, arg1, arg2);
-  } else if (topLeft && topMiddle && topRight && middleLeft && middleMiddle && middleRight && bottomLeft && bottomMiddle && bottomRight) {
+  if (tplft && tplft === tpmid && tplft === tpri) {
+    handleWin(tplft, arg1, arg2);
+  } else if (midlft && midlft === midmid && midlft === midri) {
+    handleWin(midlft, arg1, arg2);
+  } else if (btmlft && btmlft === btmmid && btmlft === btmri) {
+    handleWin(btmlft, arg1, arg2);
+  } else if (tplft && tplft === midlft && tplft === btmlft) {
+    handleWin(tplft, arg1, arg2);
+  } else if (tpmid && tpmid === midmid && tpmid === btmmid) {
+    handleWin(tpmid, arg1, arg2);
+  } else if (tpri && tpri === midri && tpri === btmri) {
+    handleWin(tpri, arg1, arg2);
+  } else if (tplft && tplft === midmid && tplft === btmri) {
+    handleWin(tplft, arg1, arg2);
+  } else if (tpri && tpri === midmid && tpri === btmlft) {
+    handleWin(tpri, arg1, arg2);
+  } else if (tplft && tpmid && tpri && midlft && midmid && midri && btmlft && btmmid && btmri) {
     gameIsLive = false;
     statusDiv.innerHTML = 'Game is tied!';
   } else {
@@ -67,10 +61,6 @@ const Player = (name) => {
   return { getName };
 };
 
-const handleReset = () => {
-  resetModule.resetLoop();
-};
-
 const resetModule = (() => {
   xIsNext = true;
   winner = null;
@@ -85,11 +75,14 @@ const resetModule = (() => {
   };
 })();
 
-const handleCellClick = (e, arg1, arg2) => {
-  const classList = e.target.classList;
-  const location = classList[1];
+const handleReset = () => {
+  resetModule.resetLoop();
+};
 
-  if (classList[2] === 'x' || classList[2] === 'o' || /WON/.test(statusDiv.textContent)) {
+const handleCellClick = (e, arg1, arg2) => {
+  const { classList } = e.target;
+
+  if (classList[1] === 'x' || classList[1] === 'o' || /WON/.test(statusDiv.textContent)) {
     return;
   }
 
@@ -112,7 +105,7 @@ form.addEventListener('submit', (e) => {
   resetDiv.addEventListener('click', handleReset);
   statusDiv.innerHTML = `${playerone.getName()} is next`;
 
-  for (let cellDiv of cellDivs)  {
+  for (const cellDiv of cellDivs) {
     cellDiv.addEventListener('click', (event) => handleCellClick(event, playerone, playertwo));
   }
   e.preventDefault();
