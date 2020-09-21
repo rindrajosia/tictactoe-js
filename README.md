@@ -56,4 +56,4 @@ Give a ⭐️ if you like this project!
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/edieatha/project-library/issues).
+Feel free to check the [issues page](https://github.com/rindrajosia/tictactoe-js/issues).
