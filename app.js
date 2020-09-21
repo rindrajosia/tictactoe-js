@@ -62,10 +62,10 @@ const Player = (name) => {
 const handleReset = () => {
   xIsNext = true;
   winner = null;
-    cellDivs.forEach(cellDiv => {
-      cellDiv.classList.remove('x');
-      cellDiv.classList.remove('o');
-    });
+  cellDivs.forEach(cellDiv => {
+    cellDiv.classList.remove('x');
+    cellDiv.classList.remove('o');
+  });
 };
 
 const handleCellClick = (e, arg1, arg2) => {
