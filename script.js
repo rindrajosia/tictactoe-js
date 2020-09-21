@@ -1,4 +1,3 @@
-/*eslint no-unused-expressions: 2*/
 const gameBoard = (() => {
   const gameboard = Array(9).fill(' - ');
 
