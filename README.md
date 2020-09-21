@@ -1,15 +1,12 @@
 # TicTacToe JavaScript Project
-A library application with front only developed with javascript
 
-This project consists of a library app that lets you keep track of your read books by adding the main info, like title, author, the number of pages and wether has been read yet or not. Each book will appear in a card and is possible to add new books filling the entering form that appears by clicking in the button with the plus (+) symbol.
-
+We’re making a Tic Tac Toe game you can play in your browser!
 
 ## Built with
 
   * Javascript
   * HTML5
   * CSS3
-  * Font Awesome
   
 ## Getting Started:
 
@@ -26,7 +23,7 @@ To get a local copy up and running follow these simple example steps:
 
 5. Open your web browser and then open the index.html local file that was copied to the proyect folder
 
-## See a live demo [Here](https://priceless-haibt-76458b.netlify.app/)
+## See a live demo [Here]()
 
 ## Show your support
 Give a ⭐️ if you like this project!
