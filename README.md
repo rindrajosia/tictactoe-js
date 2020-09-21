@@ -7,7 +7,7 @@ We’re making a Tic Tac Toe game you can play in your browser!
   * Javascript
   * HTML5
   * CSS3
-  
+
 ## Getting Started:
 
 To get a local copy up and running follow these simple example steps:
@@ -23,7 +23,6 @@ To get a local copy up and running follow these simple example steps:
 
 5. Open your web browser and then open the index.html local file that was copied to the proyect folder
 
-## See a live demo [Here]()
 
 ## Show your support
 Give a ⭐️ if you like this project!
