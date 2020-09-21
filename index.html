@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Tic Tac Toe</title>
+        <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    </head>
+
+    <body>
+
+	<section class="flex">
+      <div class="center">
+        <div class="flex logo-container">
+          <img class="logo" src="assets/img/pngwave.png" alt="logo">
+        </div>
+
+	<div class="form" id = "divForm">
+		<form id = "myForm" action = "/" method = "GET">
+		    <div class="input-container">
+		      <label class="font" for="email">Player O : </label>
+		      <input class="font input" id="playerone" name="playerone" type="text" required>
+		    </div>
+		    <div class="input-container">
+		      <label class="font" for="phone">Player X : </label>
+		      <input class="font input" id="playertwo" name="playertwo" type="text" required>
+		    </div>
+		    <div class="input-container">
+
+		      <button class="font" id="submit" type="submit">
+		        <img class="icon-lock" src="assets/img/lock.png" alt="lock">Play
+		      </button>
+		    </div>
+		</form>
+	</div>
+  <div class="board">
+
+		<div class="font">
+		      <span class="title"></span>
+		</div>
+		<div class="grid">
+		</div>
+
+		<nav class="container-button">
+		  <ul class="flex">
+		    <li>
+		      <div class="box box-reset">
+
+			</div>
+		    </li>
+		    <li>
+		     <div class="box box-newplayer">
+
+			</div>
+		    </li>
+		  </ul>
+		</nav>
+
+	</div>
+      </div>
+    </section>
+
+
+    </body>
+
+
+<script src="script.js"></script>
+
+</html>
