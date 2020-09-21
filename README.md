@@ -28,6 +28,15 @@ To get a local copy up and running follow these simple example steps:
 ## Show your support
 Give a ⭐️ if you like this project!
 
+# Screenshot
+
+* Player name
+![screenshot](assets/img/1.png)
+
+* Board game
+![screenshot](assets/img/2.png)
+
+
 ## Authors
 
 👤 **Edie Atha**
