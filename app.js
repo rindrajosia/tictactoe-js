@@ -59,22 +59,13 @@ const Player = (name) => {
   return { getName };
 };
 
-const resetModule = (() => {
+const handleReset = () => {
   xIsNext = true;
   winner = null;
-  const resetLoop = () => {
     cellDivs.forEach(cellDiv => {
       cellDiv.classList.remove('x');
       cellDiv.classList.remove('o');
     });
-  };
-  return {
-    resetLoop,
-  };
-})();
-
-const handleReset = () => {
-  resetModule.resetLoop();
 };
 
 const handleCellClick = (e, arg1, arg2) => {
@@ -97,15 +88,8 @@ form.addEventListener('submit', (e) => {
   const playerone = Player(document.getElementById('playerone').value);
   const playertwo = Player(document.getElementById('playertwo').value);
 
-  document.getElementById('divForm').style.display = 'none';
-  document.getElementById('divBoard').style.display = 'block';
-
   resetDiv.addEventListener('click', handleReset);
   statusDiv.innerHTML = `${playerone.getName()} is next`;
-
-  // for (const cellDiv of cellDivs) {
-  //   cellDiv.addEventListener('click', (event) => handleCellClick(event, playerone, playertwo));
-  // }
 
   cellDivs.forEach(cellDiv => {
     cellDiv.addEventListener('click', (event) => handleCellClick(event, playerone, playertwo));
@@ -116,7 +100,6 @@ form.addEventListener('submit', (e) => {
 const newGameForm = document.getElementById('new-game');
 
 newGameForm.onclick = () => {
-  form.reset();
-  resetModule.resetLoop();
+  location.reload();
   document.getElementById('divForm').style.display = 'block';
 };

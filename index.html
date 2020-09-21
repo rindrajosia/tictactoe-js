@@ -11,6 +11,15 @@
 </head>
 <body>
 
+<div id = "divForm">
+    <h3>Enter names to play!</h3>
+    <form id = "myForm" action="/" method = "GET">
+        <input type="text" id="playerone" name="playerone" required = 'required' placeholder="Player X" class="player-name"><br>
+        <input type="text" id="playertwo" name="playertwo" required = 'required' placeholder="Player O" class="player-name"><br>
+        <input type="submit" id="submit" value="Play" class="play-btn">
+    </form>
+</div>
+
 <div class="container" id = "divBoard">
     <h1 class="title">Tic <span>Tac</span> Toe</h1>
     <div class="col-4 card shadow-sm p-3 mb-5 bg-white rounded">
@@ -32,16 +41,6 @@
       </div>
     </div>
 </div>
-
-<div id = "divForm">
-          <h2>Enter names:</h2>
-          <form id = "myForm" acrion = "/" method = "GET">
-                <input type="text" id="playerone" name="playerone" required = 'required' placeholder="Player X" class="player-name"><br>
-                <input type="text" id="playertwo" name="playertwo" required = 'required' placeholder="Player O" class="player-name"><br>
-            <input type="submit" id="submit" value="Play" class="play-btn">
-          </form>
-      </div>
-
 
 <script src="app.js"></script>
 
