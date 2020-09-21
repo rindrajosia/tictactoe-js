@@ -9,12 +9,12 @@ const gameBoard = (() => {
 
   const getXValue = () => {
     const xarray = gameboard.filter(item => item === 'X');
-    return xarray.reduce((sum, item) => sum + 1, 0);
+    return xarray.reduce((sum) => sum + 1, 0);
   };
 
   const getOValue = () => {
     const oarray = gameboard.filter(item => item === 'O');
-    return oarray.reduce((sum, item) => sum + 1, 0);
+    return oarray.reduce((sum) => sum + 1, 0);
   };
 
   const logicTurn = () => getXValue() >= getOValue();
@@ -75,7 +75,6 @@ const checkBoard = (() => {
 
 const render = (arg1, arg2) => {
   let k = 0;
-  const arrBoard = gameBoard.getBoard();
   if (document.contains(document.getElementById('myTable'))) {
     document.getElementById('myTable').remove();
   }
