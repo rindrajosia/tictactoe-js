@@ -1,48 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
+    <head>
+        <meta charset="UTF-8">
+        <title>Tic Tac Toe</title>
+        <link rel="stylesheet" href="css/style.css">
 
-    <title>Tic Tac Toe</title>
-</head>
-<body>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    </head>
 
-<div id = "divForm">
-    <h3>Enter names to play!</h3>
-    <form id = "myForm" action="/" method = "GET">
-        <input type="text" id="playerone" name="playerone" required = 'required' placeholder="Player X" class="player-name"><br>
-        <input type="text" id="playertwo" name="playertwo" required = 'required' placeholder="Player O" class="player-name"><br>
-        <input type="submit" id="submit" value="Play" class="play-btn">
-    </form>
-</div>
+    <body>
 
-<div class="container" id = "divBoard">
-    <h1 class="title">Tic <span>Tac</span> Toe</h1>
-    <div class="col-4 card shadow-sm p-3 mb-5 bg-white rounded">
-      <div class="status-action">
-          <div class="status"></div>
-          <div class="reset">Reset</div>
-          <div id="new-game">New Game</div>
-      </div>
-      <div class="game-grid">
-          <div class="game-cell"></div>
-          <div class="game-cell"></div>
-          <div class="game-cell"></div>
-          <div class="game-cell"></div>
-          <div class="game-cell"></div>
-          <div class="game-cell "></div>
-          <div class="game-cell"></div>
-          <div class="game-cell"></div>
-          <div class="game-cell"></div>
-      </div>
-    </div>
-</div>
+	<section class="flex">
+      <div class="center">
+        <div class="flex logo-container">
+          <img class="logo" src="assets/img/pngwave.png" alt="logo">
+        </div>
 
-<script src="app.js"></script>
+	<div class="form" id = "divForm">
+		<form id = "myForm" action = "/" method = "GET">
+		    <div class="input-container">
+		      <label class="font" for="email">Player O : </label>
+		      <input class="font input" id="playerone" name="playerone" type="text" required>
+		    </div>
+		    <div class="input-container">
+		      <label class="font" for="phone">Player X : </label>
+		      <input class="font input" id="playertwo" name="playertwo" type="text" required>
+		    </div>
+		    <div class="input-container">
 
-</body>
-</html>
+		      <button class="font" id="submit" type="submit">
+		        <img class="icon-lock" src="assets/img/lock.png" alt="lock">Play
+		      </button>
+		    </div>
+		</form>
+	</div>
