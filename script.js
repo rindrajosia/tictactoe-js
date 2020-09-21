@@ -99,10 +99,10 @@ const render = (arg1, arg2) => {
   board.style.display = 'block';
   const turnDiv = document.querySelector('.title');
   if (checkBoard.drawGame()) {
-    alert('The board is full, its a draw');
+    alert('The board is full, its a draw'); // eslint-disable-line no-alert
     turnDiv.innerHTML = 'The board is full, its a draw';
   } else if (checkBoard.checkWin()) {
-    alert(`The winner is: ${checkBoard.getWinnerName(arg1, arg2)}`);
+    alert(`The winner is: ${checkBoard.getWinnerName(arg1, arg2)}`); // eslint-disable-line no-alert
     turnDiv.innerHTML = `The winner is: ${checkBoard.getWinnerName(arg1, arg2)}`;
   } else {
     turnDiv.innerHTML = `It is your turn: ${arg1.turnName(arg2)}`;
@@ -113,7 +113,7 @@ const renderCell = (() => {
   const arrBoard = gameBoard.getBoard();
 
   const eventAddElement = (position, arg1, arg2) => {
-    gameBoard.getValue(position) !== ' - ' ? alert('Choose another cell') : gameBoard.setBoard(position);
+    gameBoard.getValue(position) !== ' - ' ? alert('Choose another cell') : gameBoard.setBoard(position); // eslint-disable-line no-alert
     render(arg1, arg2);
   };
 
