@@ -88,7 +88,8 @@ const render = (arg1, arg2) => {
     const row = document.createElement('tr');
     row.classList.add('row');
     for (let j = 0; j < 3; j += 1) {
-      row.appendChild(renderCell.getCell(k, arg1, arg2)); // eslint-disable-line no-use-before-define
+      // eslint-disable-next-line no-use-before-define
+      row.appendChild(renderCell.getCell(k, arg1, arg2));
       k += 1;
     }
     tbody.appendChild(row);
