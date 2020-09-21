@@ -97,13 +97,12 @@ section {
 }
 
 .logo-container {
-  height: 75px;
-  width: 100%;
   margin-bottom: 20px;
 }
 
 .logo {
   display: block;
+  height: 70px;
 }
 
 .container-button {
@@ -249,6 +248,7 @@ input:focus {
     height:100%;
     border:1px solid #CCC;
     text-align: center;
+    padding: 1rem;
 }
 
 #newplayer {
